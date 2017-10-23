@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta charset="UTF-8">
+    <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body ng-app="ForecastApp">
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-7">
+            <h2>{{ date | dateSuffix}}</h2>
+            <h1>{{ date | date:'HH:mm'}}</h1>
+            <div class="forecast">
+              <div class="day row">
+                <div class="weekday col-md-4">
+                  <p>{{currDay.main.temp}}&deg; Clear</p>
+                </div>
+                <h2>News</h2>
+                <div class="News">
+                  <div class="newsHeading" ng-repeat="story in currNews.articles">
+                    <div class="stitle">{{story.title}}</div>
+                  <li>{{story.description}}</li>
+                  <img class="simg" ng-src="{{story.urlToImage}}"></img>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/forecast.js"></script>
+    <script src="js/services/news.js"></script>
+
+    <!-- Directives -->
+
+
+  </body>
+</html>
